@@ -16,18 +16,36 @@ public class ImpLinkedList<E> {
 		head.nextNode = tail;
 		tail.prevNode = head;
 	}
-	
-	//TODO author methods
-	
+		
 	//TODO add
+	public boolean add(E data) {
+		return false;
+	}
 	
 	//TODO get
+	public LLNode<E> get(int index){
+		return head;
+		
+	}
 	
 	//TODO add (given an index)
+	public void add(E data, int index) {
+		
+	}
 	
 	//TODO remove
+	public LLNode<E> remove(int index){
+		return null;
+	}
 	
 	//TODO set
+	public LLNode<E> set(E data, int index){
+		return null;
+	}
+	
+	public int size() {
+		return 0;
+	}
 	
 
 }
