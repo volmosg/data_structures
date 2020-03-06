@@ -17,15 +17,38 @@ public class ImpLinkedList<E> {
 		tail.prevNode = head;
 	}
 		
-	//TODO add
 	public boolean add(E data) {
+		if (data != null) {
+			// create new node
+			LLNode<E> newNode = new LLNode<E>(data);
+			// change links
+			//	newNode -> next (tail)
+			//			-> prev (tail.prev)
+			newNode.nextNode = tail;
+			newNode.prevNode = tail.prevNode;
+			//	prev	-> next (newNode)
+			tail.prevNode.nextNode = newNode;
+			//	tail	-> prev (newNode)	
+			tail.prevNode = newNode;
+			
+			// increase size
+			size += 1;
+			
+			return true;
+		}
 		return false;
 	}
 	
 	//TODO get
-	public LLNode<E> get(int index){
-		return head;
-		
+	public E get(int index){
+		if (index >= 0 && index < this.size && this.size != 0) {
+			LLNode<E> currentNode = this.head.nextNode;
+			for (int i = 0; i < index; i++) {
+				currentNode = currentNode.nextNode;
+			}
+			return currentNode.data;
+		}
+		return null;
 	}
 	
 	//TODO add (given an index)
@@ -44,7 +67,7 @@ public class ImpLinkedList<E> {
 	}
 	
 	public int size() {
-		return 0;
+		return this.size;
 	}
 	
 
