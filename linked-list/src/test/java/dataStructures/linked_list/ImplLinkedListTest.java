@@ -1,5 +1,6 @@
-package data.structures.java.linked_list;
+package dataStructures.linked_list;
 
+import dataStructures.linked_list.ImpLinkedList;
 import junit.framework.TestCase;
 
 
@@ -28,11 +29,29 @@ public class ImplLinkedListTest extends TestCase {
 	}
 
 	public void testAddEInt() {
-		fail("Not yet implemented");
+		ImpLinkedList<String> numberedList = new ImpLinkedList<String>();
+		numberedList.add("One");
+		numberedList.add("Three");
+		numberedList.add("Four");
+		assertEquals(3, numberedList.size);
+		assertEquals("Three", numberedList.get(1));
+		numberedList.add("Two", 1);
+		assertEquals(4, numberedList.size);
+		assertEquals("Two", numberedList.get(1));
+		
 	}
 
 	public void testRemove() {
-		fail("Not yet implemented");
+		ImpLinkedList<String> list = new ImpLinkedList<String>();
+		list.add("a1");
+		list.add("b2");
+		list.add("a2");
+		list.add("a3");
+		assertEquals(4, list.size);
+		assertEquals("b2", list.get(1));
+		list.remove(1);
+		assertEquals(3, list.size);
+		assertEquals("a2", list.get(1));
 	}
 
 	public void testSet() {

@@ -1,4 +1,4 @@
-package data.structures.java.linked_list;
+package dataStructures.linked_list;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

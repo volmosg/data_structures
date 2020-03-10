@@ -1,4 +1,4 @@
-package data.structures.java.linked_list;
+package dataStructures.linked_list;
 
 public class LLNode<E> {
 	

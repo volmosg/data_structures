@@ -1,4 +1,4 @@
-package data.structures.java.linked_list;
+package dataStructures.linked_list;
 
 public class ImpLinkedList<E> {
 	
@@ -7,7 +7,7 @@ public class ImpLinkedList<E> {
 	// TODO Constructor
 	LLNode<E> head;
 	LLNode<E> tail;
-	int size;
+	public int size;
 	
 	public ImpLinkedList() {
 		head = new LLNode<E>(null);
@@ -39,7 +39,7 @@ public class ImpLinkedList<E> {
 		return false;
 	}
 	
-	//TODO get
+	
 	public E get(int index){
 		if (index >= 0 && index < this.size && this.size != 0) {
 			LLNode<E> currentNode = this.head.nextNode;
@@ -51,13 +51,46 @@ public class ImpLinkedList<E> {
 		return null;
 	}
 	
+	// helper method
+	private LLNode<E> getNode(int index){
+		if (index >= 0 && index < this.size && this.size != 0) {
+			LLNode<E> currentNode = this.head.nextNode;
+			for (int i = 0; i < index; i++) {
+				currentNode = currentNode.nextNode;
+			}
+			return currentNode;
+		}
+		return null;
+	}
+	
 	//TODO add (given an index)
 	public void add(E data, int index) {
-		
+		if (data != null && index >= 0 && index < this.size) {
+			// find node in index
+			LLNode<E> oldNode = getNode(index);
+			// create new node in index
+			LLNode<E> newNode = new LLNode<E>(data);
+			// change links
+			oldNode.prevNode.nextNode = newNode;
+			newNode.prevNode = oldNode.prevNode;
+			newNode.nextNode = oldNode;
+			oldNode.prevNode = newNode;
+			// increase size
+			this.size += 1;
+		}
+	
 	}
 	
 	//TODO remove
 	public LLNode<E> remove(int index){
+		if (index >= 0 && index < this.size) {
+			LLNode<E> nodeToRemove = getNode(index);
+			// change references
+			nodeToRemove.prevNode.nextNode = nodeToRemove.nextNode;
+			nodeToRemove.nextNode = nodeToRemove.prevNode.nextNode;
+			// decrease size
+			this.size -= 1;
+		}
 		return null;
 	}
 	
