@@ -9,7 +9,7 @@ public class CircularNode<E> {
 		this.data = e;
 		// the most basic circular list will be a single element circular list
 		// pointing to itself  
-		this.nextNode = this;
+		this.nextNode = null;
 	}
 
 }
